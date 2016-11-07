@@ -1,4 +1,8 @@
 # NTBU_PEMOS
+<<<<<<< HEAD
+=======
+# NTBU_PEMOS
+>>>>>>> a85eaa6d6caac089d7d5755fd58082bba9ea50ba
  
 投稿類別：工程技術類
  

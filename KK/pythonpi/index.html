@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>PHP Open and Read text File</p>
+<?php
+$myfile="test.txt";
+if (file_exists($myfile)) 
+  {
+    $file=fopen($myfile,"r");
+    fpassthru($file);
+  }
+else
+  {
+   echo "檔案不存在";
+  }
+?>
+
+</body>
+</html>

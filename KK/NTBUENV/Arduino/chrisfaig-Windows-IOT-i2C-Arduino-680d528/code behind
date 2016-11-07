@@ -1,0 +1,85 @@
+using Windows.Devices.Enumeration;
+
+using Windows.Devices.I2c;
+
+using System.Diagnostics;
+
+using System.Threading;
+
+….
+
+public sealed partial class MainPage : Page
+
+{
+
+private I2cDevice Device;
+
+private Timer periodicTimer;
+
+public MainPage()
+
+{
+
+this.InitializeComponent();
+
+initcomunica();
+
+}
+
+ 
+
+private async void initcomunica()
+
+{
+
+var settings = new I2cConnectionSettings(0x40); // Arduino address
+
+settings.BusSpeed = I2cBusSpeed.StandardMode;
+
+string aqs = I2cDevice.GetDeviceSelector(“I2C1″);
+
+var dis = await DeviceInformation.FindAllAsync(aqs);
+
+Device = await I2cDevice.FromIdAsync(dis[0].Id, settings);
+
+periodicTimer = new Timer(this.TimerCallback, null, 0, 100); // Create a timmer
+
+}
+
+private void TimerCallback(object state)
+
+{
+
+byte[] RegAddrBuf = new byte[] { 0x40 };
+
+byte[] ReadBuf = new byte[5];
+
+try
+
+{
+
+Device.Read(ReadBuf); // read the data
+
+}
+
+catch (Exception f)
+
+{
+
+Debug.WriteLine(f.Message);
+
+}
+
+char[] cArray = System.Text.Encoding.UTF8.GetString(ReadBuf, 0, 5).ToCharArray();  // Converte  Byte to Char
+
+String c = new String(cArray);
+
+Debug.WriteLine(c);
+
+// refresh the screen, note Im using a textbock @ UI
+
+var task = this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+
+{ temperatura.Text = c; });
+
+}
