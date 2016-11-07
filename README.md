@@ -4,11 +4,14 @@
 # NTBU_PEMOS
 >>>>>>> a85eaa6d6caac089d7d5755fd58082bba9ea50ba
  
-投稿類別：工程技術類
+ 
+ 
+#完整教學
+https://www.gitbook.com/book/cs6/ntbu/details
  
  
  
-篇名:
+
 ArduinoX Raspberry Pi
 之
 土炮環境監控
@@ -26,10 +29,8 @@ ArduinoX Raspberry Pi
  
  
  
-作者：
-林大元。市立大安高級工業職業學校。綜高三愛
-指導老師：
-張佩琪老師
+作者：林大元。市立大安高級工業職業學校。綜高三愛
+
  
  
  
@@ -48,8 +49,7 @@ ArduinoX Raspberry Pi
  
  
  
- 
-一.  前言
+
 研究動機
 在這個網路發達的年代，物聯網是一項重要的發展，然而為了連上網路勢必需要機房的運作，為了讓我們可以隨時知道機房的狀況促使我進行這項研究。
 
